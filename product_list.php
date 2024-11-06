@@ -14,7 +14,7 @@ $products = $stmt->fetchAll();
             <div class="product-item">
             <img src="images/<?= htmlspecialchars($product['image_url']) ?>" alt="<?= htmlspecialchars($product['product_name']) ?>">
                 <h2><?= htmlspecialchars($product['product_name']) ?></h2>
-                <p>Giá: <?= number_format($product['price'], 2) ?> VNĐ</p>
+                <p>Giá: <?= number_format($product['price'], 0) ?> VNĐ</p>
                 <button class="buy-btn" data-product-id="<?= $product['product_id'] ?>" data-product-name="<?= htmlspecialchars($product['product_name']) ?>" data-product-price="<?= $product['price'] ?>">Mua hàng</button>
             </div>
         <?php endforeach; ?>
@@ -26,13 +26,18 @@ $products = $stmt->fetchAll();
             <span class="close">&times;</span>
             <h2>Thông tin mua hàng</h2>
             <form id="purchase-form">
-                <input type="hidden" name="product_id" id="product_id">
-                <label for="customer_info">Thông tin người mua:</label>
-                <input type="text" name="customer_info" id="customer_info" required>
-                <label for="quantity">Số lượng:</label>
-                <input type="number" name="quantity" id="quantity" min="1" required>
-                <button type="submit">Xác nhận mua hàng</button>
-            </form>
+            <input type="hidden" name="product_id" id="product_id">
+            <label for="customer_info">Thông tin người mua:</label>
+            <input type="text" name="customer_info" id="customer_info" required>
+
+            <!-- Add Customer Contact Field -->
+            <label for="customer_contact">Liên hệ:</label>
+            <input type="text" name="customer_contact" id="customer_contact" required>
+
+            <label for="quantity">Số lượng:</label>
+            <input type="number" name="quantity" id="quantity" min="1" required>
+            <button type="submit">Xác nhận mua hàng</button>
+            </form>        
         </div>
     </div>
 </main>

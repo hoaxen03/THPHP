@@ -75,14 +75,12 @@ button:hover {
     </style>
 </head>
 <body>
-    <h1>Đăng nhập</h1>
+    <h1>Đăng nhập tài khoản quản trị</h1>
     <form action="" method="post">
         <label for="username">Tên đăng nhập:</label>
-        <input type="text" id="username" name="username" required>
-        
+        <input type="text" id="username" name="username" required>       
         <label for="password">Mật khẩu:</label>
-        <input type="password" id="password" name="password" required>
-        
+        <input type="password" id="password" name="password" required>   
         <button type="submit">Đăng nhập</button>
         <button type="button" onclick="window.location.href='../';">Thoát quản trị</button>        
         <!-- Hiển thị lỗi nếu thông tin đăng nhập sai -->
