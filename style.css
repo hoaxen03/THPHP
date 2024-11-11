@@ -53,8 +53,6 @@ main {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: calc(100vh - 100px); /* Thay 100px bằng chiều cao của chân trang */
-    padding-bottom: 100px; /* Thêm khoảng trống cho chân trang */
 }
 
 /* Product List */
@@ -209,4 +207,32 @@ footer p {
     header nav ul {
         flex-direction: column;
     }
+}
+/* Đổi con trỏ chuột thành biểu tượng "pointer" khi di chuột vào nút */
+button {
+    cursor: pointer; /* Biểu tượng con trỏ hình bàn tay */
+}
+
+/* Đổi con trỏ chuột thành biểu tượng "move" khi di chuột vào một khối div */
+.moveable {
+    cursor: move; /* Biểu tượng con trỏ di chuyển */
+}
+
+/* Đổi con trỏ chuột thành biểu tượng "not-allowed" khi không cho phép tương tác */
+.disabled {
+    cursor: not-allowed; /* Biểu tượng con trỏ bị cấm */
+}
+
+/* Đổi con trỏ chuột thành biểu tượng "help" khi di chuột vào phần tử có hướng dẫn */
+.help {
+    cursor: help; /* Biểu tượng con trỏ dấu chấm hỏi */
+}
+/* Đổi con trỏ chuột thành biểu tượng hình bàn tay khi di chuột vào overlay */
+.overlay {
+    cursor: pointer;
+}
+
+/* Đổi con trỏ chuột thành biểu tượng mặc định khi di chuột vào popup */
+.popup {
+    cursor: default;
 }

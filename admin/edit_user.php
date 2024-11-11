@@ -1,14 +1,34 @@
 <?php
 include '../includes/database.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_id = $_POST['user_id'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
+$user_id = $_POST['user_id'];
+$username = $_POST['username'];
+$email = $_POST['email'];
 
-    $stmt = $pdo->prepare("UPDATE User SET username = ?, email = ? WHERE user_id = ?");
-    $stmt->execute([$username, $email, $user_id]);
-    header("Location: user_list.php"); // Chuyển hướng về danh sách đơn hàng sau khi cập nhật thành công
+// Kiểm tra xem có thay đổi mật khẩu không
+if (!empty($_POST['password'])) {
+    $password = $_POST['password'];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+    $sql = "UPDATE User SET username = :username, password = :password, email = :email WHERE user_id = :user_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':username' => $username,
+        ':password' => $hashed_password,
+        ':email' => $email,
+        ':user_id' => $user_id
+    ]);
+} else {
+    // Nếu không có mật khẩu mới, chỉ cập nhật tên và email
+    $sql = "UPDATE User SET username = :username, email = :email WHERE user_id = :user_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':username' => $username,
+        ':email' => $email,
+        ':user_id' => $user_id
+    ]);
 }
+
+header("Location: user_list.php");
+exit;
 ?>

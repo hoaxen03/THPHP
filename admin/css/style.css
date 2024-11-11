@@ -353,3 +353,69 @@ button {
 button:hover {
     background-color: #0056b3; /* Màu nền khi di chuột qua nút */
 }
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-greeting {
+    margin-left: auto;
+    padding-right: 20px; /* Khoảng cách từ tên admin đến lề phải */
+    font-weight: bold;
+}
+/* Cải thiện giao diện của nút "Chọn tệp" */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Đổi màu khi hover */
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
+
+/* Cải thiện giao diện cho thẻ input[type="file"] */
+#edit_image_url {
+    display: none; /* Ẩn input file gốc */
+}
+
+/* Hiển thị tên tệp đã chọn */
+#edit_image_url_text {
+    margin-left: 10px;
+    font-style: italic;
+}
+/* Đổi con trỏ chuột thành biểu tượng "pointer" khi di chuột vào nút */
+button {
+    cursor: pointer; /* Biểu tượng con trỏ hình bàn tay */
+}
+
+/* Đổi con trỏ chuột thành biểu tượng "move" khi di chuột vào một khối div */
+.moveable {
+    cursor: move; /* Biểu tượng con trỏ di chuyển */
+}
+
+/* Đổi con trỏ chuột thành biểu tượng "not-allowed" khi không cho phép tương tác */
+.disabled {
+    cursor: not-allowed; /* Biểu tượng con trỏ bị cấm */
+}
+
+/* Đổi con trỏ chuột thành biểu tượng "help" khi di chuột vào phần tử có hướng dẫn */
+.help {
+    cursor: help; /* Biểu tượng con trỏ dấu chấm hỏi */
+}
+/* Đổi con trỏ chuột thành biểu tượng hình bàn tay khi di chuột vào overlay */
+.overlay {
+    cursor: pointer;
+}
+
+/* Đổi con trỏ chuột thành biểu tượng mặc định khi di chuột vào popup */
+.popup {
+    cursor: default;
+}

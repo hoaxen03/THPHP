@@ -1,6 +1,5 @@
 <?php
 include 'includes/database.php';
-include 'includes/header.php'; // Bao gồm header
 
 // Lấy tất cả sản phẩm từ cơ sở dữ liệu
 $stmt = $pdo->query("SELECT * FROM SanPham");
@@ -41,9 +40,6 @@ $products = $stmt->fetchAll();
         </div>
     </div>
 </main>
-
-<?php include 'includes/footer.php'; // Bao gồm footer ?>
-
 <script>
     $(document).ready(function() {
         // Mở popup khi nhấn nút mua hàng

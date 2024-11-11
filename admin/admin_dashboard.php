@@ -40,25 +40,26 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 <body>
     <h1>Quản lý Admin</h1>
     <header>
-        <nav>
-            <ul>
-                <li><a href="product_list.php">Quản lý Sản phẩm</a></li>
-                <li><a href="order_list.php">Quản lý Đơn hàng</a></li>
-                <li><a href="user_list.php">Quản lý Tài khoản</a></li>
-                <li><a href="logout.php">Đăng xuất</a></li>
-                <li><a href="../">Thoát quản trị</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="product_list.php">Quản lý Sản phẩm</a></li>
+            <li><a href="order_list.php">Quản lý Đơn hàng</a></li>
+            <li><a href="user_list.php">Quản lý Tài khoản</a></li>
+            <li><a href="logout.php">Đăng xuất</a></li>
+            <li><a href="../">Thoát quản trị</a></li>
+        </ul>
+        <p class="admin-greeting">Xin chào, <?php echo htmlspecialchars($_SESSION['admin_name']); ?>!</p>
+    </nav>
     </header>
     <main>
 
     <!-- Biểu đồ số lượng sản phẩm theo danh mục -->
     <h3>Số lượng sản phẩm theo danh mục</h3>
-    <canvas id="productChart" width="400" height="200"></canvas>
+    <canvas id="productChart" width="100" height="50"></canvas>
 
     <!-- Biểu đồ số lượng đơn hàng theo ngày -->
     <h3>Số lượng đơn hàng theo ngày</h3>
-    <canvas id="orderChart" width="400" height="200"></canvas>
+    <canvas id="orderChart" width="100" height="50"></canvas>
 
     <script>
         // Dữ liệu biểu đồ số lượng sản phẩm theo danh mục

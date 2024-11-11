@@ -14,6 +14,7 @@ $users = $stmt->fetchAll();
             <th>ID</th>
             <th>Tên người dùng</th>
             <th>Email</th>
+            <th>Mật khẩu</th>
             <th>Hành động</th>
         </tr>
         <?php foreach ($users as $user) { ?>
@@ -21,6 +22,7 @@ $users = $stmt->fetchAll();
             <td><?php echo $user['user_id']; ?></td>
             <td><?php echo $user['username']; ?></td>
             <td><?php echo $user['email']; ?></td>
+            <td><?php echo htmlspecialchars($user['password']); ?></td> <!-- Hiển thị mật khẩu mã hóa -->
             <td>
                 <button onclick="openEditPopup(<?php echo $user['user_id']; ?>, '<?php echo $user['username']; ?>', '<?php echo $user['email']; ?>')" class="edit-button">Sửa</button>
                 <button onclick="openDeletePopup(<?php echo $user['user_id']; ?>)" class="delete-button">Xóa</button>
@@ -53,6 +55,7 @@ $users = $stmt->fetchAll();
             <input type="hidden" name="user_id" id="edit_user_id">
             Tên người dùng: <input type="text" name="username" id="edit_username" required><br><br>
             Email: <input type="email" name="email" id="edit_email" required><br><br>
+            Mật khẩu mới: <input type="password" name="password" id="edit_password"><br><br>
             <button type="submit">Cập nhật người dùng</button>
             <button type="button" onclick="closeEditPopup()">Đóng</button>
         </form>

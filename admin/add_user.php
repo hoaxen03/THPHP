@@ -1,14 +1,22 @@
 <?php
 include '../includes/database.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
+$username = $_POST['username'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Mã hóa mật khẩu
+$email = $_POST['email'];
 
-    $stmt = $pdo->prepare("INSERT INTO User (username, password, email) VALUES (?, ?, ?)");
-    $stmt->execute([$username, $password, $email]);
-    header("Location: user_list.php"); // Chuyển hướng về danh sách đơn hàng sau khi cập nhật thành công
+// Mã hóa mật khẩu
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-}
+// Thêm người dùng vào cơ sở dữ liệu
+$sql = "INSERT INTO User (username, password, email) VALUES (:username, :password, :email)";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([
+    ':username' => $username,
+    ':password' => $hashed_password,
+    ':email' => $email
+]);
+
+header("Location: user_list.php"); // Điều hướng trở lại danh sách người dùng
+exit;
 ?>
