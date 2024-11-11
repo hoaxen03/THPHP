@@ -5,13 +5,13 @@ function openPopup(id, name, price, imageUrl, categoryName) {
     document.getElementById('edit_category_name').value = categoryName;
 
     if (imageUrl) {
-        // Thay vì gán trực tiếp vào input[type="file"], chỉ hiển thị URL ảnh cũ.
         document.getElementById('edit_image_url_text').textContent = imageUrl;
     }
 
     document.getElementById('editPopup').style.display = 'block';
     document.getElementById('editOverlay').style.display = 'block';
 }
+
 
 
 function closePopup() {
@@ -172,3 +172,4 @@ function updateFileName() {
         document.getElementById('deleteOverlay').style.display = 'none';
         document.getElementById('deletePopup').style.display = 'none';
     }
+

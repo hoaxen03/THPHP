@@ -145,7 +145,7 @@ if (isset($_POST['delete_product_id'])) {
                 <td><img src="../images/<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>"></td>
                 <td><?php echo $product['category_name']; ?></td>
                 <td>
-                    <button onclick="openPopup(<?php echo $product['product_id']; ?>, '<?php echo addslashes($product['product_name']); ?>', <?php echo $product['price']; ?>, '<?php echo addslashes($product['image_url']); ?>')" class="edit-button">Sửa</button> |
+                    <button onclick="openPopup(<?php echo $product['product_id']; ?>, '<?php echo addslashes($product['product_name']); ?>', <?php echo $product['price']; ?>, '<?php echo addslashes($product['image_url']); ?>', '<?php echo addslashes($product['category_name']); ?>')" class="edit-button">Sửa</button>
                     <a href="javascript:void(0);" onclick="openDeletePopup(<?php echo $product['product_id']; ?>)" class="delete-button">Xóa</a>
                 </td>
             </tr>
@@ -156,22 +156,22 @@ if (isset($_POST['delete_product_id'])) {
 <div class="overlay" id="editOverlay" onclick="closeEditPopup()"></div>
 <div class="popup" id="editPopup">
     <h2>Chỉnh sửa sản phẩm</h2>
-    <form>
+    <form action="edit_product.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="product_id" id="edit_product_id">
+        
         Tên sản phẩm: <input type="text" name="product_name" id="edit_product_name" required><br><br>
         Giá: <input type="number" name="price" id="edit_price" required><br><br>
         Danh mục: <input type="text" name="category_name" id="edit_category_name" required><br><br>
         
         <!-- Hiển thị URL ảnh hiện tại -->
-        URL Ảnh:<label for="edit_image_url" class="custom-file-upload">Chọn Ảnh</label>
-                <input type="file" name="image_url" id="edit_image_url" style="display: none;" />
-                <span id="edit_image_url_text"></span> <br><br>
+        URL Ảnh: <label for="edit_image_url" class="custom-file-upload">Chọn Ảnh</label>
+        <input type="file" name="image_url" id="edit_image_url" style="display: none;">
+        <span id="edit_image_url_text"></span><br><br>
         
         <button type="submit" class="submit-btn">Lưu thay đổi</button>
         <button type="button" class="close-btn" onclick="closeEditPopup()">Đóng</button>
     </form>
-</div>
-
-<!-- Overlay and Popup for Deleting Product -->
+</div><!-- Overlay and Popup for Deleting Product -->
 <div class="overlay" id="deleteOverlay" onclick="closeDeletePopup()"></div>
 <div class="popup" id="deletePopup">
     <h2>Xác nhận xóa sản phẩm</h2>
